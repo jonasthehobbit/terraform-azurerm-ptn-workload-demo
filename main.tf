@@ -18,8 +18,8 @@ module "avm-res-resources-resourcegroup" {
   location = var.location
   name     = module.naming.resource_group.name_unique
   role_assignments = { for k, group in toset(var.default_groups) : k => {
-    principal_id         = azuread_group.main[k].object_id
-    role_definition_name = k
+    principal_id               = azuread_group.main[k].object_id
+    role_definition_id_or_name = k
     }
   }
 }
