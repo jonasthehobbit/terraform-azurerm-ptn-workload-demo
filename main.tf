@@ -8,7 +8,7 @@ resource "azuread_group" "main" {
   for_each         = toset(var.default_groups)
   display_name     = "rbac-${module.naming.resource_group.name_unique}-${each.key}"
   description      = "Default Groups Created By Terraform Module: ${module.naming.resource_group.name_unique}-${each.key}"
-  security_enabled = false
+  security_enabled = true
 
 }
 module "avm-res-resources-resourcegroup" {
