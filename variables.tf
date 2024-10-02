@@ -1,6 +1,7 @@
 variable "location" {
   type        = string
-  description = "uksouth"
+  description = "The Azure Region in which all resources in this example should be created."
+  default     = "uksouth"
 }
 variable "default_groups" {
   type        = list(string)
