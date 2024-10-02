@@ -1,6 +1,6 @@
 variable "location" {
   type        = string
-  description = ""
+  description = "uksouth"
 }
 variable "default_groups" {
   type        = list(string)
