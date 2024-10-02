@@ -9,7 +9,7 @@ resource "azuread_group" "main" {
   display_name     = "module.naming.resource_group.name_unique-${each.key}"
   description      = "Default Groups Created By Terraform Module: module.naming.resource_group.name_unique-${each.key}"
   security_enabled = false
-  mail_enabled     = false
+
 }
 module "avm-res-resources-resourcegroup" {
   source  = "Azure/avm-res-resources-resourcegroup/azurerm"
