@@ -3,10 +3,7 @@ variable "location" {
   description = ""
 }
 variable "default_groups" {
-  type = map(object({
-    display_name = string
-    description  = string
-  }))
+  type        = list(string)
   description = "The default groups that are Created in Azure AD to manage te workload"
   default     = ["contributor", "reader"]
 }
