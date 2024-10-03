@@ -3,6 +3,6 @@ output "resource_group_name" {
   description = "The worklaods resource group name."
 }
 output "subnet" {
-  value = {for k, subnet in azurerm_subnet.workloads : k => subnet.value.id}
+  value = {for k, subnet in azurerm_subnet.workloads : k => subnet.id}
   description = "Output the subnet ID and its key."
 }
