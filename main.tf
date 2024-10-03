@@ -25,7 +25,7 @@ module "avm-res-resources-resourcegroup" {
 data "terraform_remote_state" "network" {
   backend = "remote"
   config = {
-    organization = "hashicorp"
+    organization = "MMUDemo"
     workspaces = {
       name = "terraform-azurerm-ptn-network-demo"
     }
