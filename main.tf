@@ -22,3 +22,19 @@ module "avm-res-resources-resourcegroup" {
     }
   }
 }
+data "terraform_remote_state" "network" {
+  backend = "remote"
+  config = {
+    organization = "hashicorp"
+    workspaces = {
+      name = "terraform-azurerm-ptn-network-demo"
+    }
+  }
+}
+resource "azurerm_subnet" "workloads" {
+  for_each             = var.subnet_address_spaces
+  name                 = each.value.name
+  resource_group_name  = data.terraform_remote_state.network.outputs.resource_group_name
+  virtual_network_name = data.terraform_remote_state.network.outputs.virtual_network_name
+  address_prefixes     = each.value.address_prefixes
+}
