@@ -3,7 +3,7 @@ output "resource_group_name" {
   description = "The worklaods resource group name."
 }
 output "resource_group_location" {
-  value = module.avm-res-resources-resourcegroup.location
+  value = var.location
   description = "The worklaods resource group location."
 }
 output "subnet" {
