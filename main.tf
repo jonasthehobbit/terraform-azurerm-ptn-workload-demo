@@ -2,6 +2,7 @@ module "naming" {
   source  = "Azure/naming/azurerm"
   version = "0.4.1"
   suffix  = ["mmu", "demo"]
+
 }
 resource "azuread_group" "main" {
   for_each         = toset(var.default_groups)
