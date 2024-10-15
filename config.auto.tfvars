@@ -3,6 +3,7 @@ tags = {
   owner       = "terraform"
   environment = "dev"
   test        = "some_tag"
+  ANOTHER_TAG = "another_tag"
 }
 subnet_address_spaces = {
   "wkld_data" = {
