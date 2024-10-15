@@ -17,6 +17,7 @@ module "avm-res-resources-resourcegroup" {
   # insert the 2 required variables here
   location = var.location
   name     = module.naming.resource_group.name_unique
+  tags     = var.tags
   role_assignments = { for k, group in toset(var.default_groups) : k => {
     principal_id               = azuread_group.main[k].object_id
     role_definition_id_or_name = k

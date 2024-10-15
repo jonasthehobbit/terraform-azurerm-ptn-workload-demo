@@ -1,3 +1,9 @@
+tags = {
+  costcode    = "123456"
+  owner       = "terraform"
+  environment = "dev"
+  test        = "some_tag"
+}
 subnet_address_spaces = {
   "wkld_data" = {
     name             = "wkld_data"

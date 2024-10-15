@@ -15,3 +15,7 @@ variable "subnet_address_spaces" {
     address_prefixes = list(string)
   }))
 }
+variable "tags" {
+  description = "A map of tags to apply to all resources in this example."
+  type        = map(string)
+}
