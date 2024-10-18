@@ -1,9 +1,12 @@
+# Purpose: This file is used to create the main.tf file for the terraform module
+# 
 module "naming" {
   source  = "Azure/naming/azurerm"
   version = "0.4.1"
   suffix  = ["mmu", "demo"]
 
 }
+# Create the Azure AD groups that will be used to assign roles to the resource group.
 resource "azuread_group" "main" {
   for_each         = toset(var.default_groups)
   display_name     = "rbac-${module.naming.resource_group.name_unique}-${each.key}"
@@ -11,6 +14,7 @@ resource "azuread_group" "main" {
   security_enabled = true
 
 }
+# Uses the AVM module to create a resource group with the specified name and location and assigns the specified role assignments to the resource group.
 module "avm-res-resources-resourcegroup" {
   source  = "Azure/avm-res-resources-resourcegroup/azurerm"
   version = "0.1.0"
@@ -24,6 +28,7 @@ module "avm-res-resources-resourcegroup" {
     }
   }
 }
+# Uses the remote state data source to get the output from the network module and create a subnet in the virtual network.
 data "terraform_remote_state" "network" {
   backend = "remote"
   config = {
