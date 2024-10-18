@@ -12,7 +12,6 @@ resource "azuread_group" "main" {
   display_name     = "rbac-${module.naming.resource_group.name_unique}-${each.key}"
   description      = "Default Groups Created By Terraform Module: ${module.naming.resource_group.name_unique}-${each.key}"
   security_enabled = true
-
 }
 # Uses the AVM module to create a resource group with the specified name and location and assigns the specified role assignments to the resource group.
 module "avm-res-resources-resourcegroup" {

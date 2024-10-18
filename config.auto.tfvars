@@ -15,3 +15,4 @@ subnet_address_spaces = {
     address_prefixes = ["10.0.11.0/24"]
   }
 }
+default_groups = [ "contributor" ]
